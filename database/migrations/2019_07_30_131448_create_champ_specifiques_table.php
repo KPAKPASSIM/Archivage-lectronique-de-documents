@@ -18,7 +18,7 @@ class CreateChampSpecifiquesTable extends Migration
           $table->String('libelle_champ');
           $table->integer('slug_champ');
           $table->unsignedBigInteger('formulaire_id');
-          $table->foreign('formulaire_id')->references('id')->on('formulaires');
+          $table->foreign('formulaire_id')->references('id')->on('formulaires_tables');
           $table->timestamps();
         });
     }
