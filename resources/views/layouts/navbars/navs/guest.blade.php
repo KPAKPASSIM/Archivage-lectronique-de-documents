@@ -14,17 +14,17 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a href="{{ route('home') }}" class="nav-link">
-            <i class="material-icons"></i> {{ __('Dashboard') }}
+            <i class="material-icons"></i> {{ __('Enregistrer Archive') }}
           </a>
         </li>
         <li class="nav-item{{ $activePage == 'register' ? ' active' : '' }}">
           <a href="{{ route('register') }}" class="nav-link">
-            <i class="material-icons"></i> {{ __('Register') }}
+            <i class="material-icons"></i> {{ __("S'enregistrer") }}
           </a>
         </li>
         <li class="nav-item{{ $activePage == 'login' ? ' active' : '' }}">
           <a href="{{ route('login') }}" class="nav-link">
-            <i class="material-icons"></i> {{ __('Login') }}
+            <i class="material-icons"></i> {{ __('Se connecter') }}
           </a>
         </li>
         <li class="nav-item ">
