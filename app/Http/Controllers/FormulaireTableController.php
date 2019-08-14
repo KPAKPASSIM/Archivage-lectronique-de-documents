@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChampSpecifiqueFormulaireTable;
 use App\Models\FormulaireTable;
 use App\Models\TypeDocument;
 use Illuminate\Http\Request;
@@ -41,6 +42,8 @@ class FormulaireTableController extends Controller
             'id_type_document'=>$request->idTypeDocument,
             'libelle_formulaire'=>$request->name
         ]);
+
+
         return redirect()->route("formulaire.index");
     }
 
@@ -97,5 +100,15 @@ class FormulaireTableController extends Controller
         FormulaireTable::destroy($formulaireTable);
 
         return redirect()->route('formulaire.index')->withStatus(__('formulaire supprimé avec succès.'));
+    }
+
+    public function createChamp($formulaireTable){
+        return view('champ.create',compact('formulaireTable'));
+    }
+    public function champs($formulaireTable){
+
+        $formulaireTable = FormulaireTable::find($formulaireTable);
+        $champs = ChampSpecifiqueFormulaireTable::where('formulaire_id',$formulaireTable->id)->get('champSpecifique_id');
+        return view('champ.index',compact('formulaireTable','champs'));
     }
 }

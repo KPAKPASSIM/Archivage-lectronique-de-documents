@@ -35,7 +35,7 @@
                           {{__('Id formulaire')}}
                       </th>
                       <th>
-                          {{ __('Id type document') }}
+                          {{ __('Type document') }}
                       </th>
                       <th>
                         {{ __('Nom formulaire') }}
@@ -48,7 +48,7 @@
                                 {{$formulaire->id}}
                             </td>
                           <td>
-                            {{ $formulaire->id_type_document}}
+                              {{ $formulaire->typeDocument->libelle_type_document}}
                           </td>
                           <td>
                             {{ $formulaire->libelle_formulaire }}
@@ -59,13 +59,13 @@
                                   @csrf
                                   @method('delete')
                               
-                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.edit', $formulaire) }}" data-original-title="" title="">
+                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.edit', $formulaire) }}" data-original-title="" title="éditer formulaire">
                                     <i class="material-icons">edit</i>
                                     <div class="ripple-container"></div>
                                   </a>
 
-                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.edit', $formulaire) }}" data-original-title="" title="">
-                                      <i class="fas fa-asterisk">détails</i>
+                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.champs', $formulaire) }}" data-original-title="" title="Voir les champs">
+                                      <i class="material-icons">info</i>
                                       <div class="ripple-container"></div>
                                   </a>
                                   <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Etes vous sûr de supprimer cet formulaire?") }}') ? this.parentElement.submit() : ''">

@@ -21,10 +21,14 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Id type document') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Type document') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="idTypeDocument" id="input-name" type="integer" placeholder="{{ __('Id type document') }}" value="{{ old('name') }}" required="true" aria-required="true"/>
+                      <select class="form-control" name="idTypeDocument">
+                        @foreach(\App\Models\TypeDocument::all() as $type)
+                          <option value="{{$type->id}}">{{$type->libelle_type_document}}</option>
+                        @endforeach
+                      </select>
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif

@@ -64,14 +64,14 @@
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'typedocument' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('typedocument.index') }}">
-                <span class="sidebar-mini"> </span>
+                <span class="sidebar-mini">TD </span>
                 <span class="sidebar-normal">{{ __(' Type document') }} </span>
               </a>
 
             </li>
             <li class="nav-item{{ $activePage == 'formulaire' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('formulaire.index') }}">
-                <span class="sidebar-mini">  </span>
+                <span class="sidebar-mini">F </span>
                 <span class="sidebar-normal"> {{ __('Formulaire') }} </span>
               </a>
             </li>
