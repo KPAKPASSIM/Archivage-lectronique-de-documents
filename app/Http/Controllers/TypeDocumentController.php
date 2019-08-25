@@ -72,12 +72,9 @@ class TypeDocumentController extends Controller
      * @param  \App\Models\TypeDocument  $typeDocument
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeDocument $typeDocument)
+    public function update(Request $request, $typeDocument)
     {
-        $typeDocument->update(
-            $request->merge(['libelle_type_document' => Hash::make($request->get('name'))])
-                ->except([$request->get('name') ? '' : 'type document']
-                ));
+        TypeDocument::findOrFail($typeDocument)->update($request->all());
 
         return redirect()->route('typedocument.index')->withStatus(__('Type document modifié avec succès.'));
     }

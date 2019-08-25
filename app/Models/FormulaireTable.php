@@ -9,11 +9,13 @@ class FormulaireTable extends BaseModel
 
     public function champSpecifiques()
     {
-        return $this->belongsToMany('App\Models\ChampSpecifique','champ_specifique_formulaire_tables','champSpecifique_id ','formulaire_id');
+        return $this->belongsToMany(ChampSpecifique::class, 'champ_specifique_formulaire_tables',
+            'formulaire_id', 'champSpecifique_id');
     }
 
 
-    public function typeDocument(){
-        return $this->belongsTo('App\Models\TypeDocument','id_type_document');
+    public function typeDocument()
+    {
+        return $this->belongsTo('App\Models\TypeDocument', 'id_type_document');
     }
 }

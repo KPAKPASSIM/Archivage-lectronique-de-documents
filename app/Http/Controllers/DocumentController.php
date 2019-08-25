@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Models\TypeDocument;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller
@@ -12,9 +13,9 @@ class DocumentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Document $model)
     {
-        //
+        return view('document.index', ['documents' => $model->paginate(15)]);
     }
 
     /**
@@ -24,7 +25,8 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        $typeDocuments=TypeDocument::all();
+        return view('document.create',compact('typeDocuments'));
     }
 
     /**
@@ -57,7 +59,8 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        $document = Document::findOrFail($document);
+        return view('document.edit', compact('document'));
     }
 
     /**

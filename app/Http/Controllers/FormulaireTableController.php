@@ -53,9 +53,10 @@ class FormulaireTableController extends Controller
      * @param  \App\Models\FormulaireTable  $formulaireTable
      * @return \Illuminate\Http\Response
      */
-    public function show(FormulaireTable $formulaireTable)
+    public function show($id)
     {
-
+        $formulaireTable = FormulaireTable::findOrFail($id);
+        return view('formulaire.show',compact('formulaireTable'));
     }
 
     /**
@@ -77,14 +78,9 @@ class FormulaireTableController extends Controller
      * @param  \App\Models\FormulaireTable  $formulaireTable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FormulaireTable $formulaireTable)
+    public function update(Request $request,  $formulaireTable)
     {
-        $formulaireTable->update(
-            $request->merge(['id_type_document' => Hash::make($request->get('id'))])
-                ->except([$request->get('id') ? '' : 'id type document']),
-            $request->merge(['libelle_formulaire'=> Hash::make($request->get('name'))])
-                ->except([$request->get('name')? '': 'libelle document'])
-        );
+        FormulaireTable::findOrFail($formulaireTable)->update($request->all());
 
         return redirect()->route('formulaire.index')->withStatus(__('formulaire modifié avec succès.'));
     }

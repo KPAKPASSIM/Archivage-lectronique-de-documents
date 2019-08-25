@@ -45,5 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('typedocument','TypeDocumentController');
 	Route::resource('formulaire','FormulaireTableController');
 	Route::resource('champ','ChampSpecifiqueController');
+	Route::resource('document','DocumentController');
 });
 

@@ -12,7 +12,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('document.create') }}">
           <i class="material-icons">Archiver</i>
             <p>{{ __('Archiver Document') }}</p>
         </a>
@@ -41,11 +41,12 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Consulter Archive') }}</p>
+      <li class="nav-item{{ $activePage == 'document' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('document.index') }}">
+          <span class="sidebar-mini">CA</span>
+          <span class="sidebar-normal">{{ __(' Consulter archives') }} </span>
         </a>
+
       </li>
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('typography') }}">

@@ -5,23 +5,34 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('user.store') }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('document.store') }}" autocomplete="off" class="form-horizontal">
             @csrf
             @method('post')
 
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Ajouter utilisateur') }}</h4>
+                <h4 class="card-title">{{ __('Archiver Document') }}</h4>
                 <p class="card-category"></p>
               </div>
               <div class="card-body ">
                 <div class="row">
                   <div class="col-md-12 text-right">
-                      <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Retour à la liste') }}</a>
+                      <a href="{{ route('document.index') }}" class="btn btn-sm btn-primary">{{ __('Retour à la liste') }}</a>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Nom') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Titre document') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('titre') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('titre') ? ' is-invalid' : '' }}" name="titre" id="input-titre" type="text" placeholder="{{ __('Titre') }}" value="{{ old('titre') }}" required="true" aria-required="true"/>
+                      @if ($errors->has('titre'))
+                        <span id="titre-error" class="error text-danger" for="input-titre">{{ $errors->first('titre') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Nom auteur') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                       <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Nom') }}" value="{{ old('name') }}" required="true" aria-required="true"/>
@@ -32,35 +43,49 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Email') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Adresse auteur') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required />
-                      @if ($errors->has('email'))
-                        <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
+                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="adresse" id="input-name" type="text" placeholder="{{ __('Adresse') }}" value="{{ old('name') }}" required="true" aria-required="true"/>
+                      @if ($errors->has('name'))
+                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password">{{ __(' Mot de passe') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Date archivage') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" input type="password" name="password" id="input-password" placeholder="{{ __('Mot de passe') }}" value="" required />
-                      @if ($errors->has('password'))
-                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('password') }}</span>
+                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="datearchivage" id="input-name" type="date" placeholder="{{ __('date archivage') }}" value="{{ old('name') }}" required="true" aria-required="true"/>
+                      @if ($errors->has('name'))
+                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password-confirmation">{{ __('Confirmer mot de passe') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Importer Document') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group">
-                      <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="{{ __('Confirmer le mot de passe') }}" value="" required />
+                    <input type="file" id="example-fileinput" class="form-control-file" >
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Type document') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                      <select class="form-control" id="example-select">
+                       @foreach($typeDocuments as $typeDocument)
+                          <option value="{{ $typeDocument->id }}">{{ $typeDocument->libelle_type_document }}</option>
+                        @endforeach
+                      </select>
+                      @if ($errors->has('name'))
+                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
+                      @endif
                     </div>
                   </div>
                 </div>
+
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Ajouter') }}</button>

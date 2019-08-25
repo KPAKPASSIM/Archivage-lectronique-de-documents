@@ -64,11 +64,11 @@
                                     <div class="ripple-container"></div>
                                   </a>
 
-                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.champs', $formulaire) }}" data-original-title="" title="Voir les champs">
+                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('formulaire.show', ['id'=> $formulaire->id]) }}" data-original-title="" title="Voir les champs">
                                       <i class="material-icons">info</i>
                                       <div class="ripple-container"></div>
                                   </a>
-                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Etes vous sûr de supprimer cet formulaire?") }}') ? this.parentElement.submit() : ''">
+                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="supprimer" onclick="confirm('{{ __("Etes vous sûr de supprimer cet formulaire?") }}') ? this.parentElement.submit() : ''">
                                       <i class="material-icons">close</i>
                                       <div class="ripple-container"></div>
                                   </button>

@@ -16,7 +16,7 @@ class CreateChampSpecifiquesTable extends Migration
         Schema::create('champ_specifiques', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->String('libelle_champ');
-          $table->integer('slug_champ');
+          $table->String('slug_champ');
           $table->timestamps();
         });
     }
