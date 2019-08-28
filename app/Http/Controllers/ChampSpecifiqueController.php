@@ -39,22 +39,16 @@ class ChampSpecifiqueController extends Controller
      */
     public function store(Request $request)
     {
-        $champ = ChampSpecifique::firstOrCreate([
-            'libelle_champ' => $request->libelle_champ
-        ], [
+        $champ = ChampSpecifique::create([
+                'libelle_champ' => $request->libelle_champ,
                 'slug_champ' => Str::slug($request->libelle_champ, '_'),
-                'type_champ' => $request->type
+                'type_champ' => $request->type,
+                'type_documents_id' => $request->type_documents_id,
             ]
         );
+        $typedocument = $champ->TypeDocument;
 
-        if ($champ) {
-            ChampSpecifiqueFormulaireTable::create([
-                'formulaire_id' => $request->formulaireTable,
-                'champSpecifique_id' => $champ->id,
-            ]);
-        }
-
-        return redirect()->route("formulaire.index");
+        return redirect()->route("typedocument.show", compact('typedocument'));
     }
 
     /**
@@ -91,9 +85,10 @@ class ChampSpecifiqueController extends Controller
     {
         $data = $request->all();
         $data['slug_champ'] = Str::slug($request->libelle_champ, '_');
-        ChampSpecifique::findOrFail($champSpecifique)->update($data);
-
-        return redirect()->route('formulaire.show', ['id' => $request->get('idFormulaire')])->withStatus(__('champ modifié avec succès.'));
+        $champ = ChampSpecifique::findOrFail($champSpecifique);
+        $champ->update($data);
+        $typedocument = $champ->TypeDocument;
+        return redirect()->route('typedocument.show', compact('typedocument'))->withStatus(__('champ modifié avec succès.'));
     }
 
     /**
@@ -104,10 +99,7 @@ class ChampSpecifiqueController extends Controller
      */
     public function destroy($champSpecifique)
     {
-        $formulaire = Input::get('formulaire');
-        ChampSpecifiqueFormulaireTable::where('formulaire_id', $formulaire)
-            ->where('champSpecifique_id', $champSpecifique)->delete();
-
+        ChampSpecifique::destroy($champSpecifique);
         return redirect()->back()->withStatus(__('champ supprimé avec succès.'));
     }
 }

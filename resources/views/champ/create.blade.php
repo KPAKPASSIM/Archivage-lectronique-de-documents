@@ -17,10 +17,10 @@
               <div class="card-body ">
                 <div class="row">
                   <div class="col-md-12 text-right">
-                      <a href="{{ route('formulaire.show',$formulaireTable) }}" class="btn btn-sm btn-primary">{{ __('Retour à la liste') }}</a>
+                      <a href="{{ route('typedocument.show',['id'=>$typeDocument->id]) }}" class="btn btn-sm btn-primary">{{ __('Retour à la liste') }}</a>
                   </div>
                 </div>
-                <input type="hidden" value="{{$formulaireTable}}" name="formulaireTable"/>
+                <input type="hidden" value="{{$typeDocument->id}}" name="type_documents_id"/>
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Nom champ spécifique') }}</label>
                   <div class="col-sm-7">

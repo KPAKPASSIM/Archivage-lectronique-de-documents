@@ -27,6 +27,8 @@
                                 <div class="col-12 text-right">
                                     <a href="{{ route('typedocument.create') }}"
                                        class="btn btn-sm btn-primary">{{ __('Ajouter type document') }}</a>
+                                    <a href=""
+                                       class="btn btn-sm btn-primary" onclick="print()">{{ __('Imprimer') }}</a>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -58,6 +60,10 @@
                                                        href="{{ route('typedocument.edit', $type) }}"
                                                        data-original-title="" title="modifier">
                                                         <i class="material-icons">edit</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                    <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('typedocument.show', ['id'=> $type->id]) }}" data-original-title="" title="Voir les champs">
+                                                        <i class="material-icons">info</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
                                                     <button type="button" class="btn btn-danger btn-link"

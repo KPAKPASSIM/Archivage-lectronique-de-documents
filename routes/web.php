@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('language');
 });
 
+Route::get('document/get-champs-specifiques', 'DocumentController@getChampsSpecifiques')->name('api.champs.specifiques');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
@@ -41,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
     Route::get('formulaire/{id}/champs', ['as' => 'formulaire.champs', 'uses' => 'FormulaireTableController@champs']);
-    Route::get('formulaire/{id}/champ', ['as' => 'formulaire.champ.create', 'uses' => 'FormulaireTableController@createChamp']);
+    Route::get('typedocument/{id}/champ/create', ['as' => 'typedocument.champ.create', 'uses' => 'TypeDocumentController@createChamp']);
 	Route::resource('typedocument','TypeDocumentController');
 	Route::resource('formulaire','FormulaireTableController');
 	Route::resource('champ','ChampSpecifiqueController');

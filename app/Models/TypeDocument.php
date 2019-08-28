@@ -7,8 +7,8 @@ class TypeDocument extends BaseModel
 {
     protected $table = 'type_documents';
 
-    public function formulaires(){
-        return $this->hasMany('App\Models\FormulaireTable','id_type_document');
+    public function ChampSpecifiques(){
+        return $this->hasMany(ChampSpecifique::class,'type_documents_id','id');
     }
 }
 

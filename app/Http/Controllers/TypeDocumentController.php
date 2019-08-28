@@ -10,7 +10,7 @@ class TypeDocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
-      * @param  \App\TypeDocument  $model
+     * @param \App\TypeDocument $model
      * @return \Illuminate\Http\Response
      */
     public function index(TypeDocument $model)
@@ -31,13 +31,13 @@ class TypeDocumentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         TypeDocument::create([
-            'libelle_type_document'=>$request->name
+            'libelle_type_document' => $request->name
         ]);
         return redirect()->route("typedocument.index");
     }
@@ -45,21 +45,22 @@ class TypeDocumentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypeDocument  $typeDocument
+     * @param \App\Models\TypeDocument $typeDocument
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeDocument $typeDocument)
+    public function show($id)
     {
-        //
+        $typedocument = TypeDocument::findOrFail($id);
+        return view('typedocument.show', compact('typedocument'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypeDocument  $typeDocument
+     * @param \App\Models\TypeDocument $typeDocument
      * @return \Illuminate\Http\Response
      */
-    public function edit( $typeDocument)
+    public function edit($typeDocument)
     {
         $typeDocument = TypeDocument::findOrFail($typeDocument);
         return view('typedocument.edit', compact('typeDocument'));
@@ -68,8 +69,8 @@ class TypeDocumentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypeDocument  $typeDocument
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\TypeDocument $typeDocument
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $typeDocument)
@@ -79,10 +80,16 @@ class TypeDocumentController extends Controller
         return redirect()->route('typedocument.index')->withStatus(__('Type document modifié avec succès.'));
     }
 
+    public function createChamp($typeDocument)
+    {
+        $typeDocument= TypeDocument::findOrFail($typeDocument);
+        return view('champ.create', compact('typeDocument'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypeDocument  $typeDocument
+     * @param \App\Models\TypeDocument $typeDocument
      * @return \Illuminate\Http\Response
      */
     public function destroy($typeDocument)

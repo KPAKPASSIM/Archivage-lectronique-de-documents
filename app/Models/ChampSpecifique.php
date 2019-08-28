@@ -7,8 +7,8 @@ class ChampSpecifique extends BaseModel
 {
     protected $table = 'champ_specifiques';
 
-    public function formulaires()
+    public function TypeDocuments()
     {
-        return $this->belongsToMany('App\Models\FormulaireTable','champ_specifique_formulaire_tables','champSpecifique_id','formulaire_id');
+        return $this->hasOne(TypeDocument::class,'id','type_documents_id');
     }
 }

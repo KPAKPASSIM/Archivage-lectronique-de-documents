@@ -7,8 +7,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{ __('Champ Formulaires') }}</h4>
-                            <p class="card-category"> {{ __('Vous pouvez gérer vos formulaires spécifiques et les champs ici') }}</p>
+                            <h4 class="card-title ">{{ __('Champ Spécifiques') }}</h4>
+                            <p class="card-category"> {{ __('Vous pouvez gérer vos champs spécifiques ici') }}</p>
                         </div>
                         <div class="card-body">
                             @if (session('status'))
@@ -25,7 +25,7 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="{{ route('formulaire.champ.create', $formulaireTable) }}"
+                                    <a href="{{ route('typedocument.champ.create', ['id'=> $typedocument->id]) }}"
                                        class="btn btn-sm btn-primary d-inline-block mr-2">{{ __('Ajouter champ') }}</a>
                                     <a href="{{ back()->getTargetUrl() }}"
                                        class="btn btn-sm btn-primary d-inline-block">{{ __('Retour à la liste') }}</a>
@@ -43,7 +43,7 @@
                                     </th>
                                     </thead>
                                     <tbody>
-                                    @foreach($formulaireTable->champSpecifiques as $champ)
+                                    @foreach($typedocument->ChampSpecifiques as $champ)
                                         <tr>
                                             <td>
                                                 {{ $champ->libelle_champ }}
@@ -56,7 +56,7 @@
                                                 <form action="{{ route('champ.destroy', $champ) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <input type="hidden" value="{{ $formulaireTable->id}}"
+                                                    <input type="hidden" value="{{ $typedocument->id}}"
                                                            name="formulaire">
                                                     <a rel="tooltip" class="btn btn-success btn-link"
                                                        href="{{ route('champ.edit', $champ) }}" data-original-title=""

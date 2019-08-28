@@ -14,10 +14,11 @@ class CreateChampSpecifiquesTable extends Migration
     public function up()
     {
         Schema::create('champ_specifiques', function (Blueprint $table) {
-          $table->bigIncrements('id');
-          $table->String('libelle_champ');
-          $table->String('slug_champ');
-          $table->timestamps();
+            $table->bigIncrements('id');
+            $table->String('libelle_champ');
+            $table->String('slug_champ');
+            $table->timestamps();
+
         });
     }
 

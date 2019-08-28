@@ -25,7 +25,7 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="{{ route('formulaire.champ.create', $formulaireTable->id) }}"
+                                    <a href="{{ route('typedocument.champ.create', $typeDocument->id) }}"
                                        class="btn btn-sm btn-primary">{{ __('Ajouter champ') }}</a>
                                 </div>
                             </div>
