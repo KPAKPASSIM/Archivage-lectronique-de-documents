@@ -44,16 +44,15 @@
                       @foreach($documents as $document)
                         <tr>
                           <td>
-                            {{ $document->nom_auteur }}
+                            {{ $document->titre_document }}
                           </td>
                           <td>
-                            {{ $document->adresse_auteur }}
+                            {{ $document->nom_auteur }}
                           </td>
                           <td>
                             {{ $document->created_at->format('Y-m-d') }}
                           </td>
                           <td class="td-actions text-right">
-                            @if ($user->id != auth()->id())
                               <form action="{{ route('document.destroy', $document) }}" method="post">
                                   @csrf
                                   @method('delete')
@@ -68,7 +67,6 @@
                                   </button>
                               </form>
                               </a>
-                            @endif
                           </td>
                         </tr>
                       @endforeach

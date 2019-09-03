@@ -41,10 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-    Route::get('formulaire/{id}/champs', ['as' => 'formulaire.champs', 'uses' => 'FormulaireTableController@champs']);
     Route::get('typedocument/{id}/champ/create', ['as' => 'typedocument.champ.create', 'uses' => 'TypeDocumentController@createChamp']);
 	Route::resource('typedocument','TypeDocumentController');
-	Route::resource('formulaire','FormulaireTableController');
 	Route::resource('champ','ChampSpecifiqueController');
 	Route::resource('document','DocumentController');
 });

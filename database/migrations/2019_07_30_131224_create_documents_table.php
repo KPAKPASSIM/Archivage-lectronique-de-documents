@@ -20,8 +20,6 @@ class CreateDocumentsTable extends Migration
           $table->String('reference');
           $table->String('nom_auteur');
           $table->string('adresse_auteur');
-          $table->string('nom_destinataire');
-          $table->string('adresse_destinataire');
           $table->string('statut_document');
           $table->text('attribut_additionnel');
           $table->unsignedBigInteger('type_document_id');

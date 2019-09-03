@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="{{ route('document.store') }}" autocomplete="off"
+                    <form method="post" action="{{ route('document.store') }}" autocomplete="off" enctype="multipart/form-data"
                           class="form-horizontal">
                         @csrf
                         @method('post')
@@ -42,11 +42,26 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                   name="name" id="input-name" type="text" placeholder="{{ __('Nom') }}"
-                                                   value="{{ old('name') }}" required="true" aria-required="true"/>
-                                            @if ($errors->has('name'))
+                                                   name="nom_auteur" id="input-nom_auteur" type="text" placeholder="{{ __('Nom') }}"
+                                                   value="{{ old('nom_auteur') }}" required="true" aria-required="true"/>
+                                            @if ($errors->has('nom_auteur'))
                                                 <span id="name-error" class="error text-danger"
-                                                      for="input-name">{{ $errors->first('name') }}</span>
+                                                      for="input-nom_auteur">{{ $errors->first('nom_auteur') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Date document') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                                   name="date_document" id="input-date_document" type="date"
+                                                   placeholder="{{ __('date document') }}" value="{{ old('date_document') }}"
+                                                   required="true" aria-required="true"/>
+                                            @if ($errors->has('date_document'))
+                                                <span id="name-error" class="error text-danger"
+                                                      for="input-date_document">{{ $errors->first('date_adocument') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -56,12 +71,27 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                   name="adresse" id="input-name" type="text"
-                                                   placeholder="{{ __('Adresse') }}" value="{{ old('name') }}"
+                                                   name="adresse_auteur" id="input-adresse_auteur" type="text"
+                                                   placeholder="{{ __('Adresse') }}" value="{{ old('adresse_auteur') }}"
                                                    required="true" aria-required="true"/>
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('adresse_auteur'))
                                                 <span id="name-error" class="error text-danger"
-                                                      for="input-name">{{ $errors->first('name') }}</span>
+                                                      for="input-adresse_auteur">{{ $errors->first('adresse_auteur') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Reference document') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                                   name="reference" id="input-reference" type="text"
+                                                   placeholder="{{ __('reference') }}" value="{{ old('reference') }}"
+                                                   required="true" aria-required="true"/>
+                                            @if ($errors->has('reference'))
+                                                <span id="name-error" class="error text-danger"
+                                                      for="input-date_archivage">{{ $errors->first('reference') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -71,12 +101,12 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                   name="datearchivage" id="input-name" type="date"
-                                                   placeholder="{{ __('date archivage') }}" value="{{ old('name') }}"
+                                                   name="date_archivage" id="input-date_archivage" type="date"
+                                                   placeholder="{{ __('date archivage') }}" value="{{ old('date_archivage') }}"
                                                    required="true" aria-required="true"/>
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('date_archivage'))
                                                 <span id="name-error" class="error text-danger"
-                                                      for="input-name">{{ $errors->first('name') }}</span>
+                                                      for="input-date_archivage">{{ $errors->first('date_archivage') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -84,14 +114,14 @@
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">{{ __('Importer Document') }}</label>
                                     <div class="col-sm-7">
-                                        <input type="file" id="example-fileinput" class="form-control-file">
+                                        <input type="file" id="example-fileinput" class="form-control-file" name="fichier_joint">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">{{ __('Type document') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                            <select class="form-control" required id="typedoc">
+                                            <select class="form-control" required id="typedoc" name="type_documents_id">
                                                 <option value=""></option>
                                                 @foreach($typeDocuments as $typeDocument)
                                                     <option value="{{ $typeDocument->id }}">{{ $typeDocument->libelle_type_document }}</option>
@@ -133,7 +163,7 @@
                            html += '<div  class="row" >' +
                                '<label class="col-sm-2 col-form-label">' + value.libelle_champ + '</label>' +
                                 '<div class="col-sm-7">' +
-                                '<input type="'+ value.type_champ + '" class="form-control" name="'+ value.slug +'">' +
+                                '<input type="'+ value.type_champ + '" class="form-control" name="'+ value.slug_champ +'">' +
                                 '</div></div>' ;
                         });
                         $('#formspecifique').html(html);
