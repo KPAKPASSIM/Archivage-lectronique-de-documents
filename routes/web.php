@@ -45,5 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('typedocument','TypeDocumentController');
 	Route::resource('champ','ChampSpecifiqueController');
 	Route::resource('document','DocumentController');
+	Route::resource('role','RoleController');
+	Route::resource('userRole','UserRoleController');
+
 });
 

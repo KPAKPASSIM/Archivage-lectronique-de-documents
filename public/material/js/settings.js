@@ -172,3 +172,7 @@ $(document).ready(function() {
       $('.card').removeClass('card-hidden');
   }, 700);
 });
+
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});

@@ -25,7 +25,9 @@
                 @endif
                 <div class="row">
                   <div class="col-12 text-right">
+                   @can('create document')
                     <a href="{{ route('document.create') }}" class="btn btn-sm btn-primary">{{ __('Ajouter document') }}</a>
+                   @endcan
                   </div>
                 </div>
                 <div class="table-responsive">
@@ -56,15 +58,18 @@
                               <form action="{{ route('document.destroy', $document) }}" method="post">
                                   @csrf
                                   @method('delete')
-                              
+                                  @can('edit document')
                                   <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('document.edit', $document) }}" data-original-title="" title="">
                                     <i class="material-icons">edit</i>
                                     <div class="ripple-container"></div>
                                   </a>
+                                  @endcan
+                                  @can('delete document')
                                   <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Etes vous sûr de supprimer cette archive?") }}') ? this.parentElement.submit() : ''">
                                       <i class="material-icons">close</i>
                                       <div class="ripple-container"></div>
                                   </button>
+                                   @endcan
                               </form>
                               </a>
                           </td>

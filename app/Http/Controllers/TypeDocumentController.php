@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Hash;
 
 class TypeDocumentController extends Controller
 {
+     public function __construct() {
+
+       $this->middleware('permission:index Typedocument')->only('index');
+       $this->middleware('permission:edit Typedocument')->only('edit');
+       $this->middleware('permission:update Typedocument')->only('update');
+       $this->middleware('permission:store Typedocument')->only('store');
+       $this->middleware('permission:delete Typedocument')->only('destroy');
+       $this->middleware('permission:create Typedocument')->only('create');
+       $this->middleware('permission:show Typedocument')->only('show');
+   }
     /**
      * Display a listing of the resource.
      * @param \App\TypeDocument $model
@@ -25,6 +35,7 @@ class TypeDocumentController extends Controller
      */
     public function create()
     {
+
         return view('typedocument.create');
     }
 

@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+     public function __construct() {
+
+        $this->middleware('permission:index utilisateur')->only('index');
+        $this->middleware('permission:edit utilisateur')->only('edit');
+        $this->middleware('permission:update utilisateur')->only('update');
+        $this->middleware('permission:store utilisateur')->only('store');
+        $this->middleware('permission:delete utilisateur')->only('destroy');
+        $this->middleware('permission:create utilisateur')->only('create');
+        $this->middleware('permission:show utilisateur')->only('show');
+    }
     /**
      * Display a listing of the users
      *

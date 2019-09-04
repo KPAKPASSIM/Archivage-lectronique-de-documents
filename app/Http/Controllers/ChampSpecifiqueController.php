@@ -11,6 +11,16 @@ use Illuminate\Support\Str;
 
 class ChampSpecifiqueController extends Controller
 {
+    public function __construct() {
+
+       $this->middleware('permission:index ChampSpecifique')->only('index');
+       $this->middleware('permission:edit ChampSpecifique')->only('edit');
+       $this->middleware('permission:update ChampSpecifique')->only('update');
+       $this->middleware('permission:store ChampSpecifique')->only('store');
+       $this->middleware('permission:delete ChampSpecifique')->only('destroy');
+       $this->middleware('permission:create ChampSpecifique')->only('create');
+       $this->middleware('permission:show ChampSpecifique')->only('show');
+   }
     /**
      * Display a listing of the resource.
      *

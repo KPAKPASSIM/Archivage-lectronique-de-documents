@@ -18,9 +18,11 @@
           </a>
         </li>
         <li class="nav-item{{ $activePage == 'register' ? ' active' : '' }}">
+          @can('create utilisateur')
           <a href="{{ route('register') }}" class="nav-link">
-            <i class="material-icons"></i> {{ __("S'enregistrer") }}
+            <i class="material-icons"></i> {{ __("Créer Utilisateur") }}
           </a>
+            @endcan
         </li>
         <li class="nav-item{{ $activePage == 'login' ? ' active' : '' }}">
           <a href="{{ route('login') }}" class="nav-link">

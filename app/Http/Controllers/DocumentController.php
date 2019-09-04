@@ -7,8 +7,19 @@ use App\Models\TypeDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class DocumentController extends Controller
-{
+class DocumentController extends Controller {
+
+   public function __construct() {
+
+        $this->middleware('permission:index document')->only('index');
+        $this->middleware('permission:edit document')->only('edit');
+        $this->middleware('permission:update document')->only('update');
+        $this->middleware('permission:store document')->only('store');
+        $this->middleware('permission:delete document')->only('destroy');
+        $this->middleware('permission:create document')->only('create');
+        $this->middleware('permission:show document')->only('show');
+    }
+
     /**
      * Display a listing of the resource.
      *

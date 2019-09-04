@@ -7,8 +7,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{ __('Type document') }}</h4>
-                            <p class="card-category"> {{ __('Vous pouvez gérer vos type document ici') }}</p>
+                            <h4 class="card-title ">{{ __('Gestion des rôles') }}</h4>
+                            <p class="card-category"> {{ __('Vous pouvez gérer les rôles ici') }}</p>
                         </div>
                         <div class="card-body">
                             @if (session('status'))
@@ -25,62 +25,57 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    @can('create Typedocument')
-                                    <a href="{{ route('typedocument.create') }}"
-                                       class="btn btn-sm btn-primary">{{ __('Ajouter type document') }}
+                                    @can('create role')
+                                    <a href="{{ route('role.create') }}"
+                                       class="btn btn-sm btn-primary">{{ __('Ajouter rôle') }}
                                     </a>
                                     @endcan
-                                    <a href=""
-                                       class="btn btn-sm btn-primary" onclick="print()">{{ __('Imprimer') }}</a>
                                 </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
+
                                     <th>
-                                        {{__('Id type document')}}
+                                        {{ __('Rôle') }}
                                     </th>
+
                                     <th>
-                                        {{ __('Nom type document') }}
+                                        {{ __('Permissions') }}
                                     </th>
                                     </thead>
                                     <tbody>
-                                    @foreach($typeDocuments as $type)
+                                    @foreach($roles as $role)
                                         <tr>
                                             <td>
-                                                {{ $type->id }}
+                                                {{ $role->name }}
                                             </td>
                                             <td>
-                                                {{ $type->libelle_type_document }}
+                                            @foreach($role->permissions as $permission)
+                                                {{$permission->name}}
+                                            @endforeach
                                             </td>
                                             <td class="td-actions text-right">
 
-                                                <form action="{{ route('typedocument.destroy', $type->id) }}" method="post">
+                                                <form action="{{ route('role.destroy', $role->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-
-                                                    @can('edit Typedocument')
+                                                     @can('edit role')
                                                     <a rel="tooltip" class="btn btn-success btn-link"
-                                                       href="{{ route('typedocument.edit', $type) }}"
+                                                       href="{{ route('role.edit',  $role->id) }}"
                                                        data-original-title="" title="modifier">
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
                                                     @endcan
-                                                    @can('show Typedocument')
-                                                    <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('typedocument.show', ['id'=> $type->id]) }}" data-original-title="" title="Voir les champs">
-                                                        <i class="material-icons">info</i>
-                                                        <div class="ripple-container"></div>
-                                                    </a>
-                                                    @endcan
-                                                    @can('delete document')
+                                                    @can('delete role')
                                                     <button type="button" class="btn btn-danger btn-link"
                                                             data-original-title="" title="supprimer"
-                                                            onclick="confirm('{{ __("Etes vous sûr de supprimer cet type?") }}') ? this.parentElement.submit() : ''">
+                                                            onclick="confirm('{{ __("Etes vous sûr de supprimer cet rôle?") }}') ? this.parentElement.submit() : ''">
                                                         <i class="material-icons">close</i>
                                                         <div class="ripple-container"></div>
                                                     </button>
-                                                     @endcan
+                                                        @endcan
                                                 </form>
                                             </td>
                                         </tr>
