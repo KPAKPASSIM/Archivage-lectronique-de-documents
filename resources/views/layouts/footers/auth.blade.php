@@ -3,24 +3,24 @@
     <nav class="float-left">
       <ul>
         <li>
-          <a href="https://www.systid.com">
-              {{ __('SYSTID Sarl') }}
-          </a>
+          <!-- <a href="https://www.systid.com">
+           {{ __('SYSTID Sarl') }}
+          </a>--!>
         </li>
         <li>
-          <a href="https://www.systid.com/presentation">
+        <!--  <a href="https://www.systid.com/presentation">
               {{ __('A propos') }}
-          </a>
+          </a>--!>
         </li>
         <li>
-          <a href="http://www.systid.com/solutions">
+        <!-- <a href="http://www.systid.com/solutions">
               {{ __('SYSTID Solutions') }}
-          </a>
+          </a>--!>
         </li>
         <li>
-          <a href="https://www.systid.com/equipe">
+        <!-- <a href="https://www.systid.com/equipe">
               {{ __('Administration') }}
-          </a>
+          </a>--!>
         </li>
       </ul>
     </nav>

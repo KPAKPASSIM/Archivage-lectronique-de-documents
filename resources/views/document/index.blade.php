@@ -52,20 +52,24 @@
                             {{ $document->nom_auteur }}
                           </td>
                           <td>
-                            {{ $document->created_at->format('Y-m-d') }}
+                            {{ (new \Carbon\Carbon($document->created_at))->format('Y-m-d') }}
                           </td>
                           <td class="td-actions text-right">
-                              <form action="{{ route('document.destroy', $document) }}" method="post">
+                              <form action="{{ route('document.destroy', ['id'=> $document->id]) }}" method="post">
                                   @csrf
                                   @method('delete')
                                   @can('edit document')
-                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('document.edit', $document) }}" data-original-title="" title="">
+                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('document.edit', ['id'=> $document->id]) }}" data-original-title="" title="Modifier">
                                     <i class="material-icons">edit</i>
                                     <div class="ripple-container"></div>
                                   </a>
+                                      <a rel="tooltip" class="btn btn-success btn-link" href="{{asset('/documents/' . $document->fichier_joint)}}" target="_blank" data-original-title="" title="Visualiser ">
+                                          <i class="material-icons">info</i>
+                                          <div class="ripple-container"></div>
+                                      </a>
                                   @endcan
                                   @can('delete document')
-                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Etes vous sûr de supprimer cette archive?") }}') ? this.parentElement.submit() : ''">
+                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="Supprimer" onclick="confirm('{{ __("Etes vous sûr de supprimer cette archive?") }}') ? this.parentElement.submit() : ''">
                                       <i class="material-icons">close</i>
                                       <div class="ripple-container"></div>
                                   </button>

@@ -11,9 +11,9 @@
     <span class="navbar-toggler-icon icon-bar"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end">
-      <form class="navbar-form">
+      <form class="navbar-form" action = "{{url()->current()}}" method = "GET" role = "search">
         <div class="input-group no-border">
-        <input type="text" value="search" class="form-control" placeholder="Search...">
+        <input type="search" value="search" class="form-control" placeholder="Search..." name="search">
         <button type="submit" class="btn btn-white btn-round btn-just-icon">
           <i class="material-icons">search</i>
           <div class="ripple-container"></div>

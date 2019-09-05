@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('email') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                       <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Rôle') }}" value="{{ old('name') }}" required="true" aria-required="true"/>

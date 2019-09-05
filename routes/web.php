@@ -19,7 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
+Route::get('/search', 'DocumentController@search');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
@@ -49,4 +49,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('userRole','UserRoleController');
 
 });
+
 
