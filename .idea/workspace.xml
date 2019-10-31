@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d23b52c-fa45-4648-b017-a7524abb37d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/documents/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/documents/6.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/documents/7.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/documents/9.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/material/img/Archivage_Site.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/material/img/archivage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/material/img/archiver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/material/img/ged.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DossierController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TypeDocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TypeDocumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserRoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserRoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Dossier.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_131224_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_30_131224_create_documents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_131411_create_formulaires_tables.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_131448_create_champ_specifiques_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_30_131448_create_champ_specifiques_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_120911_create_dossiers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_28_111249_add_type_documents_id_column_to_champ_specifiques_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_28_111249_add_type_documents_id_column_to_champ_specifiques_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserRolesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserRolesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/documents/4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/documents/4.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/documents/5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/documents/5.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/document/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/document/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page_templates/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page_templates/guest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search/index.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -272,7 +239,8 @@
       <workItem from="1570213715788" duration="801000" />
       <workItem from="1572263034372" duration="1878000" />
       <workItem from="1572288350270" duration="3364000" />
-      <workItem from="1572511492468" duration="683000" />
+      <workItem from="1572511492468" duration="1003000" />
+      <workItem from="1572513668402" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="sauvegarde 1">
       <created>1564591946789</created>
@@ -365,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567712151407</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="configuration de l'intégration continue">
+      <created>1572512528433</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1572512528433</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +389,8 @@
     <MESSAGE value="Gestion des r$oles et des permissions" />
     <MESSAGE value="Correction des bugs et début de l'intégration des recherches" />
     <MESSAGE value="Correction des bugs et début de l'intégration des recherches suite" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction des bugs et début de l'intégration des recherches suite" />
+    <MESSAGE value="configuration de l'intégration continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="configuration de l'intégration continue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
