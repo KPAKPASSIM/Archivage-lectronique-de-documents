@@ -41,6 +41,6 @@ class RolesTableSeeder extends Seeder
             ['name' => 'delete role'],
             ['name' => 'delete role']
         );
-
+     
     }
 }

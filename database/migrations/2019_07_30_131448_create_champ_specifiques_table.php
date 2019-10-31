@@ -17,6 +17,7 @@ class CreateChampSpecifiquesTable extends Migration
             $table->bigIncrements('id');
             $table->String('libelle_champ');
             $table->String('slug_champ');
+            $table->String('type_champ');
             $table->timestamps();
 
         });

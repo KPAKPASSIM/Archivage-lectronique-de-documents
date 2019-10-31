@@ -41,5 +41,6 @@ class UserRolesTableSeeder extends Seeder
             ['name' => 'delete userRole'],
             ['name' => 'delete userRole']
         );
+
     }
 }

@@ -105,7 +105,8 @@ class DocumentController extends Controller
     public function edit($document)
     {
         $document = Document::findOrFail($document);
-        return view('document.edit', compact('document'));
+        $typeDocuments = TypeDocument::all();
+        return view('document.edit', compact('document', 'typeDocuments'));
     }
 
     /**
@@ -117,7 +118,7 @@ class DocumentController extends Controller
      */
     public function update(Request $request, $document)
     {
-        Document::findOrFail(Document)->update($request->all());
+        Document::findOrFail($document)->update($request->all());
 
         return redirect()->route('document.index')->withStatus(__(' document modifié avec succès.'));
     }

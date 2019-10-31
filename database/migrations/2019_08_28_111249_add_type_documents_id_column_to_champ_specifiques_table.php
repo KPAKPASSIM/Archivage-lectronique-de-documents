@@ -14,7 +14,7 @@ class AddTypeDocumentsIdColumnToChampSpecifiquesTable extends Migration
     public function up()
     {
         Schema::table('champ_specifiques', function (Blueprint $table) {
-
+            $table->unsignedBigInteger('type_documents_id');
             $table->foreign('type_documents_id')->references('id')->on('type_documents')->onDelete('cascade');
         });
     }

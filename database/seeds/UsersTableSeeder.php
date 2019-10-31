@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
             ['name' => 'delete utilisateur']
         );
 
-        DB::table('users')->insert([
+         DB::table('users')->insert([
             'name' => 'Admin Admin',
             'email' => 'admin@material.com',
             'email_verified_at' => now(),
@@ -51,5 +51,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+
     }
 }

@@ -118,9 +118,11 @@ class UserRoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
+        User::destroy($user);
 
+        return redirect()->route('userRole.index')->withStatus(__('Rôle supprimé avec succès.'));
 
     }
 }

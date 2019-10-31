@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use App\Models\TypeDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
 class TypeDocumentController extends Controller
 {
@@ -23,9 +25,17 @@ class TypeDocumentController extends Controller
      * @param \App\TypeDocument $model
      * @return \Illuminate\Http\Response
      */
-    public function index(TypeDocument $model)
+    public function index()
     {
-        return view('typedocument.index', ['typeDocuments' => $model->paginate(15)]);
+
+        $search = Input::get('search');
+        if (isset($search)) {
+            $typedocuments = TypeDocument::where('libelle_type_document', 'like', '%' . $search . '%')
+                ->paginate(5);
+            return view('typedocument.index', ['typeDocuments' => $typedocuments]);
+        }
+        return view('typedocument.index', ['typeDocuments' => TypeDocument::paginate(15)]);
+       // return view('typedocument.index', ['typeDocuments' => $model->paginate(15)]);
     }
 
     /**
