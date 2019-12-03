@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('language');
 });
 
+
+
+
+
 Route::get('document/get-champs-specifiques', 'DocumentController@getChampsSpecifiques')->name('api.champs.specifiques');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -47,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('document','DocumentController');
 	Route::resource('role','RoleController');
 	Route::resource('userRole','UserRoleController');
+    Route::get('affichage/{id}', 'FiltreController@filtrer');
 
 });
 

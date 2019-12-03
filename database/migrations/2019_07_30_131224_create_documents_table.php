@@ -15,9 +15,9 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->date('titre_document');
+          $table->String('titre_document');
           $table->date('date_archivage');
-          $table->string('date_document');
+          $table->String('date_document');
           $table->String('reference');
           $table->String('nom_auteur');
           $table->string('adresse_auteur');

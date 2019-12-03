@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d23b52c-fa45-4648-b017-a7524abb37d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FiltreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/13.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/18.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/documents/20.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_131224_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_30_131224_create_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +257,15 @@
       <workItem from="1572263034372" duration="1878000" />
       <workItem from="1572288350270" duration="3364000" />
       <workItem from="1572511492468" duration="1003000" />
-      <workItem from="1572513668402" duration="378000" />
+      <workItem from="1572513668402" duration="1091000" />
+      <workItem from="1572900086048" duration="246000" />
+      <workItem from="1572900367378" duration="6673000" />
+      <workItem from="1574239039828" duration="5961000" />
+      <workItem from="1574254780017" duration="13402000" />
+      <workItem from="1574328753112" duration="2662000" />
+      <workItem from="1575042632349" duration="2009000" />
+      <workItem from="1575295717423" duration="10850000" />
+      <workItem from="1575403379366" duration="243000" />
     </task>
     <task id="LOCAL-00001" summary="sauvegarde 1">
       <created>1564591946789</created>
@@ -340,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572512528433</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="configuration de l'intégration continue">
+      <created>1572514101152</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1572514101152</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -33,7 +33,7 @@ class DocumentController extends Controller
         $search = Input::get('search');
         if (isset($search)) {
             $documents = Document::where('titre_document', 'like', '%' . $search . '%')
-                ->paginate(5);
+                ->paginate(15);
             return view('document.index', ['documents' => $documents]);
         }
         return view('document.index', ['documents' => Document::paginate(15)]);
